@@ -11,6 +11,10 @@ const CONFIG = {
     // Replace this link with your landscape photo URL for the home page background
     HERO_IMAGE: 'https://drive.google.com/file/d/16xR4x4AP0CfgE1dL39tMuDAoFBtAWiAB/view?usp=sharing',
 
+    // Replace this link with your portrait photo URL for mobile screens (Optional)
+    // If left empty, it will default to using the HERO_IMAGE above on phones.
+    HERO_IMAGE_MOBILE: 'https://drive.google.com/file/d/1gS0yVyJOR7Hq69k2rrB8ZVdkdFwSwNdE/view?usp=sharing',
+
     // 2. Navigation & Media
     // Define your tabs here! You can add as many tabs as you want.
     // Valid types: "youtube", "google_drive_photo", "google_drive_video", "image"

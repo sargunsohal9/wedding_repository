@@ -5,12 +5,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 0. Hero Background
     if (CONFIG && CONFIG.HERO_IMAGE) {
-        let heroUrl = CONFIG.HERO_IMAGE;
-        const fileMatch = heroUrl.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
-        if (fileMatch) {
-            heroUrl = `https://drive.google.com/thumbnail?id=${fileMatch[1]}&sz=w2500`;
-        }
-        document.querySelector('.hero').style.backgroundImage = `url('${heroUrl}')`;
+        const updateHeroImage = () => {
+            const isMobile = window.innerWidth <= 768;
+            let heroUrl = (isMobile && CONFIG.HERO_IMAGE_MOBILE) ? CONFIG.HERO_IMAGE_MOBILE : CONFIG.HERO_IMAGE;
+            const fileMatch = heroUrl.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+            if (fileMatch) {
+                heroUrl = `https://drive.google.com/thumbnail?id=${fileMatch[1]}&sz=w2500`;
+            }
+            document.querySelector('.hero').style.backgroundImage = `url('${heroUrl}')`;
+        };
+        
+        updateHeroImage();
+        window.addEventListener('resize', updateHeroImage);
     }
 
     // 1. Navigation Scroll Effect
