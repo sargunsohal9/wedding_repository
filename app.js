@@ -96,6 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const mediaView = document.getElementById('media-view');
         mediaView.classList.add('active');
 
+        // Force collapse CSS dropdowns on mobile by temporarily hiding them
+        document.querySelectorAll('.dropdown-content').forEach(el => {
+            el.style.display = 'none';
+            setTimeout(() => el.style.display = '', 100);
+        });
+
         document.getElementById('media-title').textContent = item.title;
         document.getElementById('media-subtitle').textContent = tabName;
 
@@ -204,7 +210,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                html = '<div class="video-grid">';
+                html = `
+                    <p style="text-align: center; color: var(--text-main); opacity: 0.8; margin-bottom: 2rem; font-size: 0.9rem;">
+                        <em>Tip: If a video shows a "Sign in" limit error, simply click the pop-out icon <span style="font-size: 1.2rem;">↗</span> in the top right corner of the video to watch it!</em>
+                    </p>
+                    <div class="video-grid">
+                `;
                 uniqueFiles.forEach(file => {
                     const previewUrl = `https://drive.google.com/file/d/${file.id}/preview`;
                     html += `
