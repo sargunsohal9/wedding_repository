@@ -298,7 +298,14 @@ h3 {
     backdrop-filter: blur(8px);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    animation: fadeIn 2s ease-out forwards;
+}
+
+.auth-title {
+    font-size: 4.5rem;
+}
+
+.auth-ampersand {
+    font-size: 2.5rem;
 }
 
 .hero-title {
@@ -515,12 +522,12 @@ h3 {
         gap: 1rem;
     }
 
-    .hero-title {
-        font-size: 4.5rem;
+    .hero-title, .auth-title {
+        font-size: 3.5rem;
     }
 
-    .hero-ampersand {
-        font-size: 2.5rem;
+    .hero-ampersand, .auth-ampersand {
+        font-size: 2rem;
     }
 
     .hero-subtitle {
@@ -537,10 +544,16 @@ h3 {
         column-count: 2;
     }
 
-    .dropdown-content {
-        left: 50%;
+    .dropdown:first-child .dropdown-content {
+        left: 0;
         right: auto;
-        transform: translateX(-50%);
+        transform: none;
+    }
+    
+    .dropdown:last-child .dropdown-content {
+        right: 0;
+        left: auto;
+        transform: none;
     }
 }
 
@@ -560,12 +573,12 @@ h3 {
         background: rgba(253, 251, 247, 0.25); /* More transparent */
     }
 
-    .hero-title {
-        font-size: 3.5rem;
+    .hero-title, .auth-title {
+        font-size: 2.8rem;
     }
 
-    .hero-ampersand {
-        font-size: 2rem;
+    .hero-ampersand, .auth-ampersand {
+        font-size: 1.5rem;
     }
 
     .hero-subtitle {
