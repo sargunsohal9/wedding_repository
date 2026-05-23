@@ -89,6 +89,11 @@ const CONFIG = {
                     link: "https://www.youtube.com/watch?v=QEPVXcIkufk&list=PLEn7yLxg8bY4JaGTWkU44U7qjVQ9CzfBB&index=2"
                 },
                 {
+                    title: "Dhokli Night",
+                    type: "youtube",
+                    link: "https://www.youtube.com/watch?v=7IQisYsVcSg&list=PLEn7yLxg8bY4JaGTWkU44U7qjVQ9CzfBB&index=7"
+                },
+                {
                     title: "Mehandi",
                     type: "youtube",
                     link: "https://www.youtube.com/watch?v=ZbYABSkPADg&list=PLEn7yLxg8bY4JaGTWkU44U7qjVQ9CzfBB&index=3"
