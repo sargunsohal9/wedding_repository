@@ -65,7 +65,7 @@ const CONFIG = {
                 {
                     title: "Reception",
                     type: "google_drive_photo",
-                    link: "https://drive.google.com/drive/folders/1V8rPsA8bdsNaN5uGUClSfUqQSZI8QIUL"
+                    link: "https://drive.google.com/drive/folders/1V8rPsA8bdsNaN5uGUClSfUqQSZI8QIUL?usp=sharing"
                 },
                 {
                     title: "Pictures Taken on Phones",
