@@ -55,6 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
             aBtn.href = '#';
             aBtn.className = 'dropbtn';
             aBtn.innerHTML = `${tab.name} &#9662;`;
+            
+            aBtn.onclick = (e) => {
+                e.preventDefault();
+                const content = li.querySelector('.dropdown-content');
+                // Close all other dropdowns
+                document.querySelectorAll('.dropdown-content').forEach(el => {
+                    if (el !== content) el.classList.remove('show');
+                });
+                content.classList.toggle('show');
+            };
+
             li.appendChild(aBtn);
 
             // Create Dropdown content container
@@ -96,11 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const mediaView = document.getElementById('media-view');
         mediaView.classList.add('active');
 
-        // Force collapse CSS dropdowns on mobile by temporarily disabling pointer events
-        // This forces mobile browsers to instantly drop the fake CSS :hover state!
-        document.querySelectorAll('.dropdown').forEach(el => {
-            el.style.pointerEvents = 'none';
-            setTimeout(() => el.style.pointerEvents = '', 100);
+        // Force collapse dropdowns by removing the JS show class
+        document.querySelectorAll('.dropdown-content').forEach(el => {
+            el.classList.remove('show');
         });
 
         document.getElementById('media-title').textContent = item.title;
