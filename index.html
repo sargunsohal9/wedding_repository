@@ -59,8 +59,11 @@
         <!-- Media View (Hidden until a dropdown item is clicked) -->
         <section id="media-view" class="section section-dark view-section">
             <div class="container">
-                <h2 class="section-title" id="media-title">Function Name</h2>
-                <p class="section-description" id="media-subtitle">Photos / Videos</p>
+                <h2 class="section-title" id="media-title" style="margin-bottom: 0.5rem;">Function Name</h2>
+                <p class="section-description" id="media-subtitle" style="margin-bottom: 1rem;">Photos / Videos</p>
+                <div style="text-align: center; margin-bottom: 2rem; min-height: 2rem;">
+                    <button id="start-slideshow-btn" class="btn btn-gold" style="display: none; padding: 0.5rem 1.5rem; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">▶ Start Slideshow</button>
+                </div>
 
                 <!-- Dynamic Container for YouTube, Drive Videos, or Photos -->
                 <div id="media-container">
@@ -73,6 +76,7 @@
     <!-- Lightbox for Photo Viewing -->
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <button class="btn btn-gold" id="lightbox-slideshow-toggle" style="position: absolute; top: 20px; left: 20px; padding: 0.5rem 1rem; font-size: 0.9rem; z-index: 1002; display: none;">⏸ Pause</button>
         <div class="lightbox-prev" id="lightbox-prev">&#10094;</div>
         <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged photo">
         <div class="lightbox-next" id="lightbox-next">&#10095;</div>

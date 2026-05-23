@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadMediaView(item, tabName) {
         document.body.className = "theme-default";
+        document.getElementById('start-slideshow-btn').style.display = 'none';
         
         document.getElementById('home-view').classList.remove('active');
         const mediaView = document.getElementById('media-view');
@@ -307,6 +308,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 html += '</div>';
                 container.innerHTML = html;
+                
+                if (uniqueFiles.length > 0) {
+                    document.getElementById('start-slideshow-btn').style.display = 'inline-block';
+                }
             }
 
         } else if (item.type === 'image') {
@@ -341,15 +346,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxDownload = document.getElementById('lightbox-download');
 
     let currentPhotoIndex = 0;
+    
+    // Slideshow state
+    let slideshowTimer = null;
+    let isSlideshowPlaying = false;
+    const SLIDESHOW_INTERVAL_MS = 4000;
+    const slideshowToggleBtn = document.getElementById('lightbox-slideshow-toggle');
+
+    document.getElementById('start-slideshow-btn').addEventListener('click', () => {
+        if (!window.currentGalleryPhotos || window.currentGalleryPhotos.length === 0) return;
+        window.openLightboxWrapper(0);
+        startSlideshow();
+    });
+
+    slideshowToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isSlideshowPlaying) pauseSlideshow();
+        else startSlideshow();
+    });
+
+    function startSlideshow() {
+        if (!window.currentGalleryPhotos || window.currentGalleryPhotos.length <= 1) return;
+        isSlideshowPlaying = true;
+        slideshowToggleBtn.innerHTML = '⏸ Pause';
+        slideshowToggleBtn.style.display = 'inline-block';
+        
+        clearInterval(slideshowTimer);
+        slideshowTimer = setInterval(() => {
+            currentPhotoIndex = (currentPhotoIndex + 1) % window.currentGalleryPhotos.length;
+            updateLightboxContent();
+        }, SLIDESHOW_INTERVAL_MS);
+    }
+
+    function pauseSlideshow() {
+        isSlideshowPlaying = false;
+        slideshowToggleBtn.innerHTML = '▶ Play';
+        clearInterval(slideshowTimer);
+    }
+
+    function stopSlideshow() {
+        pauseSlideshow();
+        slideshowToggleBtn.style.display = 'none';
+    }
 
     window.openLightboxWrapper = function (index) {
         if (typeof index === 'string') {
             // Fallback for single images
             lightboxImg.src = arguments[0];
             lightboxDownload.href = arguments[1] || arguments[0];
+            slideshowToggleBtn.style.display = 'none';
         } else {
             currentPhotoIndex = index;
             updateLightboxContent();
+            if (window.currentGalleryPhotos && window.currentGalleryPhotos.length > 1) {
+                slideshowToggleBtn.style.display = 'inline-block';
+                slideshowToggleBtn.innerHTML = '▶ Play';
+            }
         }
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -364,6 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('lightbox-prev').addEventListener('click', (e) => {
         e.stopPropagation();
+        pauseSlideshow();
         if (window.currentGalleryPhotos && window.currentGalleryPhotos.length > 0) {
             currentPhotoIndex = (currentPhotoIndex - 1 + window.currentGalleryPhotos.length) % window.currentGalleryPhotos.length;
             updateLightboxContent();
@@ -372,6 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('lightbox-next').addEventListener('click', (e) => {
         e.stopPropagation();
+        pauseSlideshow();
         if (window.currentGalleryPhotos && window.currentGalleryPhotos.length > 0) {
             currentPhotoIndex = (currentPhotoIndex + 1) % window.currentGalleryPhotos.length;
             updateLightboxContent();
@@ -379,6 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function closeLightbox() {
+        stopSlideshow();
         lightbox.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
