@@ -480,14 +480,16 @@ h3 {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         gap: 0.5rem;
     }
     
     .nav-brand {
         text-align: center;
         width: 100%;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        white-space: nowrap;
     }
     
     .nav-links {
@@ -516,8 +518,19 @@ h3 {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        background-position: 25% center !important; /* Shift to show left crowd */
+    }
+
     .hero.active {
-        padding-top: 15vh;
+        padding-top: 10vh; /* Move text up more to stay out of the way */
+    }
+
+    .hero-content {
+        padding: 0.5rem 1rem; /* Extremely tight padding so box is small */
+        width: 95%; /* Don't stretch across entire screen */
+        backdrop-filter: blur(4px); /* Reduce blur intensity */
+        background: rgba(253, 251, 247, 0.25); /* More transparent */
     }
 
     .hero-title {
@@ -529,7 +542,7 @@ h3 {
     }
 
     .hero-subtitle {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         letter-spacing: 1px;
     }
 
