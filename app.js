@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                html = '<div class="masonry-grid">';
+                html = '<div class="video-grid">';
                 uniqueFiles.forEach(file => {
                     const previewUrl = `https://drive.google.com/file/d/${file.id}/preview`;
                     html += `

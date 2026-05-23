@@ -372,6 +372,13 @@ h3 {
     width: 100%;
 }
 
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
 .photo-item {
     border-radius: 4px;
     overflow: hidden;

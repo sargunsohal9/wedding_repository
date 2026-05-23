@@ -33,7 +33,7 @@ const CONFIG = {
                     link: "https://drive.google.com/drive/u/2/folders/1Rzm0lWbC-rF6Z-aTh0ZuIlBPQJnfJZdR"
                 },
                 {
-                    title: "Dhokli Night",
+                    title: "Dholki Night",
                     type: "google_drive_photo",
                     link: "https://drive.google.com/drive/u/2/folders/1P8UKvLMT5FDjbPh2kHydj0rG078H1pc2"
                 },
@@ -84,7 +84,7 @@ const CONFIG = {
                     link: "https://www.youtube.com/watch?v=YvaHFvWJV8k&list=PLEn7yLxg8bY4JaGTWkU44U7qjVQ9CzfBB"
                 },
                 {
-                    title: "Dhokli Night",
+                    title: "Dholki Night",
                     type: "youtube",
                     link: "https://www.youtube.com/watch?v=QEPVXcIkufk&list=PLEn7yLxg8bY4JaGTWkU44U7qjVQ9CzfBB&index=2"
                 },
