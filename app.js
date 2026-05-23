@@ -96,10 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const mediaView = document.getElementById('media-view');
         mediaView.classList.add('active');
 
-        // Force collapse CSS dropdowns on mobile by temporarily hiding them
-        document.querySelectorAll('.dropdown-content').forEach(el => {
-            el.style.display = 'none';
-            setTimeout(() => el.style.display = '', 100);
+        // Force collapse CSS dropdowns on mobile by temporarily disabling pointer events
+        // This forces mobile browsers to instantly drop the fake CSS :hover state!
+        document.querySelectorAll('.dropdown').forEach(el => {
+            el.style.pointerEvents = 'none';
+            setTimeout(() => el.style.pointerEvents = '', 100);
         });
 
         document.getElementById('media-title').textContent = item.title;
