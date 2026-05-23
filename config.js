@@ -119,16 +119,6 @@ const CONFIG = {
                     link: "https://drive.google.com/drive/folders/1DEuWJox4ZWRc9eG10v-JHQbS5LqgjsUq"
                 }
             ]
-        },
-        {
-            name: "Invitations",
-            items: [
-                {
-                    title: "E-Invite",
-                    type: "pdf",
-                    link: "https://drive.google.com/file/d/1zEPGzlD8M_doq_C_4yklNGHOHuyWOxYJ/view?usp=sharing"
-                }
-            ]
         }
     ]
 };
