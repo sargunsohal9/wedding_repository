@@ -270,7 +270,8 @@ h3 {
    Hero Section
    ======================================== */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100svh;
     display: none;
     align-items: center;
     justify-content: center;
@@ -536,7 +537,8 @@ h3 {
     }
 
     .hero-date {
-        bottom: 15vh;
+        top: 80%;
+        bottom: auto;
         font-size: 1.2rem;
     }
 
@@ -560,6 +562,7 @@ h3 {
 @media (max-width: 480px) {
     .hero {
         background-position: 25% center !important; /* Shift to show left crowd */
+        background-attachment: scroll !important; /* Fixes mobile scroll jumping */
     }
 
     .hero.active {
