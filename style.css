@@ -249,7 +249,7 @@ h3 {
     padding-left: 20px;
 }
 
-@media (hover: hover) {
+@media (min-width: 769px) {
     .dropdown:hover .dropdown-content {
         display: block;
         animation: slideDown 0.2s ease forwards;
